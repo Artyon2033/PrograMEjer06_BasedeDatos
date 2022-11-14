@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Base de Datos App',
+      title: 'BaseDatos App',
       debugShowCheckedModeBanner: false,
       home: HomePage(),
     );
