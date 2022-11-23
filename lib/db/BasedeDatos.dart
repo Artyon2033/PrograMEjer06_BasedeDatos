@@ -31,4 +31,32 @@ class DBAdmin {
       },
     );
   }
+
+  insertRawTask() async {
+    Database? db = await chekDatabase();
+    int res = await db!.rawInsert(
+        "INSERT INTO TASK(title, description, status) VALUE ('Ir de compras','Tenemos que ir a Tottus','false')");
+    print(res);
+  }
+
+  insertTask() async {
+    Database? db = await chekDatabase();
+    int res = await db!.insert(
+      "Task",
+      {
+        "title": "Comprar el nuevo disco",
+        "description": "Nuevo disco de Epica",
+        "status": "false",
+      },
+    );
+    print(res);
+  }
+
+  getTasks() async {
+    Database? db = await chekDatabase();
+    List tasks = await db!.rawQuery("SELECT * FROM Task");
+    print(tasks);
+  }
+
+  
 }
